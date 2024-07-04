@@ -401,27 +401,6 @@ $(document).ready(function () {
       }, 2500);
     },2000);
   });*/
-
-  const images = [
-    'Icono.jpg',
-    'Presentacion1.gif',
-    'Presentacion2.gif',
-    'Presentacion3.gif',
-    'Presentacion4.gif',
-    'Presentacion5.gif',
-    'Presentacion6.gif'
-    // Agrega todos los nombres de archivo de tus imágenes aquí
-  ];
-
-  // Ruta a la carpeta de imágenes
-  const imagePath = 'Assets/Imagenes/';
-
-  // Precargar imágenes
-  images.forEach(function (image) {
-    const img = new Image();
-    img.src = imagePath + image;
-  });
-
 });
 
 $(window).on("resize", function () {
