@@ -1,2 +1,2 @@
-# HarukaCard
-Pagina sobre mi informacion personal
+# HarukaCard v2.0
+Pagina HTML sobre mi informacion de interes. La vesion actual es la 2.0, ya que se ha hecho un rework total de la tarjeta HTML el 23/02/24, ademas de que se han incluido frameworks y funciones para agregar un mejor aspecto e interaccion con la tarjeta. Las actualizaciones a la tarjeta las hare cuando vea pertinente hacerlas, ya sea para solucionar bugs y errores o para actualizar segmentos de informacion, diseño e interaccion. Esta version fue lanzada el publicamente el 03/07/24 y se planea traer mas actualizaciones en los proximos meses.

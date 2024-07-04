@@ -1,23 +1,305 @@
 <!DOCTYPE html>
 <!--
 Autor: HarukaSan115
-Fecha: 09/Jun/2022
-Version 1.0
+Fecha de actualizacion: 09/Feb/2024
+Fecha de Salida:
+Version 2.0 ~ Rework completo
 -->
-<html>
-<head>
-	<meta charset="UTF-8">
-	<meta charset="ISO-8859-1">
-	<title>Presentaci&oacute;n</title>
-	<link rel = "stylesheet" type = "text/css" href = "Estilos/CardHarukaSan.css">
-</head>
-<body>
-	<h1 align = "Center">Tarjeta en remodelacion UwU</h1>
-	<h2 align = "Center">~~~ 09/02/2024 ~~~</h2>
-	<br>
-	<br>
-	<h1 align = "Center" style="color:red;">Detenido por falta de tiempo, pronto lo continuare</h1>
-	<h1 align = "Center">88% Finalizado</h1>
-	<h2 align = "Center">~~~ 20/05/2024 ~~~</h2>
-</body>
+<html lang="es-MX">
+  <head>
+    <meta charset="UTF-8" />
+    <meta charset="ISO-8859-1" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+    <title>HarukaCard v2.0</title>
+
+    <!--Componentes-->
+    <link
+      id="EstiloPropio"
+      rel="stylesheet"
+      type="text/css"
+      href="Estilos/CardHarukaSanResponsive.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css"
+    />
+    <script src="https://code.iconify.design/iconify-icon/2.0.0/iconify-icon.min.js"></script>
+    <!--Iconify Framework-->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <!--JQuery-->
+    <script src="Scripts/Funciones.js"></script>
+    <!--Funciones de la tarjeta-->
+  </head>
+
+  <body>
+    <!--<div class="notification is-info is-slide-right">
+      <button class="delete"></button>
+      <span id="textNoti">¿Quieres habilitar la musica de fondo?</span>
+      <div class="buttons">
+        <button class="button is-success is-dark">Si</button>
+        <button class="button is-danger is-dark">No</button>
+      </div>
+    </div>-->
+    <div id="loadingScreen">
+      <span id="TextoLoading">Cargando tarjeta.</span>
+      <div class="canvas">
+        <iconify-icon
+          id="Engranaje"
+          icon="ph:gear-six-duotone"
+          width="128"
+          height="128"
+        ></iconify-icon>
+        <div class="spinner"></div>
+      </div>
+      <div id="final">
+        <span>Developed & Designed by HarukaSan with</span>
+        <a href="https://bulma.io">
+          <img
+            src="https://bulma.io/assets/brand/Bulma%20Logo%20White.png"
+            alt="Made with Bulma"
+            width="64"
+            height="24"
+          />
+        </a>
+      </div>
+    </div>
+    <div id="ContenedorTarjeta">
+      <header id="Areaportada">
+        <div id="ImagenPortada">
+          <figure id="HarukaPresentacion">
+            <img src="" alt="HarukaPresentacion.jpg" id="HarukaPresentacion" />
+          </figure>
+        </div>
+        <div id="AreaDescripcion">
+          <!--Imagen-->
+          <div id="ImagenPerfil">
+            <figure class="image is-96x96">
+              <img
+                class="is-rounded"
+                src="Assets/Imagenes/Icono.jpg"
+                alt="HarukaIcono.jpg"
+                id="HarukaIcono"
+              />
+            </figure>
+          </div>
+          <!--Nombre y etiquetas-->
+          <div id="ContenedorNombreEtiquetas">
+            <div id="Nombre">
+              <span id="TextoNombre">H</span>
+              <span id="Cursor">|</span>
+            </div>
+            <div class="tags are-medium" id="Etiquetas">
+              <span class="tag is-rounded is-black">Programador</span>
+              <span class="tag is-rounded is-black">Ñeñe Trajeado</span>
+              <span class="tag is-rounded is-black">Auroner</span>
+              <span class="tag is-rounded is-black">EveLover</span>
+              <span class="tag is-rounded is-black">Otaku</span>
+              <span class="tag is-rounded is-black">Gamer</span>
+              <span class="tag is-rounded is-black">GatoLover</span>
+            </div>
+          </div>
+          <!--Redes-->
+          <div id="AreaRedes">
+            <div id="Redes1">
+              <span class="icon-text" id="RRSS">
+                <span class="icon is-small">
+                  <iconify-icon
+                    icon="logos:discord-icon"
+                    width="1rem"
+                    height="1rem"
+                  ></iconify-icon>
+                </span>
+                <span><a>HaruHaru115</a></span>
+              </span>
+              <span class="icon-text" id="RRSS">
+                <span class="icon is-small">
+                  <iconify-icon
+                    icon="bi:twitter-x"
+                    width="1rem"
+                    height="1rem"
+                  ></iconify-icon>
+                </span>
+                <span
+                  ><a href="https://twitter.com/HarukaSan115"
+                    >@HarukaSan115</a
+                  ></span
+                >
+              </span>
+              <span class="icon-text" id="RRSS">
+                <span class="icon is-small">
+                  <iconify-icon
+                    icon="logos:twitch"
+                    width="1rem"
+                    height="1rem"
+                    id="iconos"
+                  ></iconify-icon>
+                </span>
+                <span
+                  ><a href="https://www.twitch.tv/HarukaSan115"
+                    >HarukaSan115</a
+                  ></span
+                >
+              </span>
+              <span class="icon-text" id="RRSS">
+                <span class="icon is-small">
+                  <iconify-icon
+                    icon="bi:github"
+                    width="1rem"
+                    height="1rem"
+                  ></iconify-icon>
+                </span>
+                <span
+                  ><a href="https://github.com/HarukaSan115"
+                    >HarukaSan115</a
+                  ></span
+                >
+              </span>
+            </div>
+            <div id="Redes2">
+              <span class="icon-text" id="RRSS">
+                <span class="icon is-small">
+                  <iconify-icon
+                    icon="logos:youtube-icon"
+                    width="1rem"
+                    height="1rem"
+                  ></iconify-icon>
+                </span>
+                <span
+                  ><a href="https://www.youtube.com/@HarukaSan115"
+                    >@HarukaSan115</a
+                  ></span
+                >
+              </span>
+              <span class="icon-text" id="RRSS">
+                <span class="icon is-small">
+                  <iconify-icon
+                    icon="logos:tiktok-icon"
+                    width="1rem"
+                    height="1rem"
+                  ></iconify-icon>
+                </span>
+                <span
+                  ><a href="https://www.tiktok.com/@harukasenpai115"
+                    >HarukaSenpai115</a
+                  ></span
+                >
+              </span>
+              <span class="icon-text" id="RRSS">
+                <span class="icon is-small">
+                  <iconify-icon
+                    icon="bi:steam"
+                    width="1rem"
+                    height="1rem"
+                    style="color: #44749b"
+                  ></iconify-icon>
+                </span>
+                <span
+                  ><a href="https://steamcommunity.com/id/Haru-San115/"
+                    >HarukaSan115</a
+                  ></span
+                >
+              </span>
+              <span class="icon-text" id="RRSS">
+                <span class="icon is-small">
+                  <iconify-icon
+                    icon="cib:epic-games"
+                    width="1rem"
+                    height="1rem"
+                  ></iconify-icon>
+                </span>
+                <span
+                  ><a
+                    href="https://store.epicgames.com/es-ES/u/25c393a0041c49d9bad69bd82df154b5"
+                    >HarukaSan115</a
+                  ></span
+                >
+              </span>
+            </div>
+          </div>
+        </div>
+      </header>
+      <!--Cuerpo de la tarjeta-->
+      <section class="columns" id="SeccionContenido">
+        <div class="column">
+          <span><b>Nombre:</b> Jorge <br /></span>
+          <span><b>Pseudonimo:</b> Haruka / Haru</span>
+          <span><b>Pronombres:</b> El / He / Him</span>
+          <span
+            ><span><b>Edad:</b> </span><span id="EdadRealTime"></span
+          ></span>
+          <span><b>Signo:</b> Libra</span>
+          <span
+            ><span><b>Temperamento:</b> </span><span id="TempTexto"></span
+          ></span>
+          <span><b>Personaalidad:</b> INFJ</span>
+          <span><b>Cumpleaños:</b> 27 / Septiembre</span>
+          <span><b>Pais:</b> México</span>
+          <span
+            ><b>Colores Favoritos:</b>
+            <span style="color: #610000; font-weight: bold">Rojo</span>,
+            <span style="color: #000000; font-weight: bold">Negro</span> y
+            <span style="color: #500463; font-weight: bold">Purpura</span></span
+          >
+        </div>
+        <div class="column">
+          <span><b>Generos de musica favoritos:</b></span>
+          <ul>
+            <li>Pop ~ [JAP & ENG]</li>
+            <li>Rock ~ [JAP & ENG]</li>
+            <li>Clasica ~ [80's / 90's]</li>
+          </ul>
+          <span><b>Cantantes favoritos: </b></span>
+          <ul>
+            <li><a href = "https://x.com/oO0Eve0Oo">Eve Harapeco</a></li>
+            <li><a href = "https://x.com/zutomayo">Acane [Zutomayo]</a></li>
+            <li><a href = "https://x.com/michaeljackson">Michael Jackson</a></li>
+          </ul>
+          <span><b>Filosofia de vida: </b></span>
+          <span>"Como me trates te tratare"</span>
+        </div>
+        <div class="column">
+          <span
+            ><b>Mejor amiga:</b>
+            <a href="https://twitter.com/Freyaliity">@Freyality</a></span
+          >
+          <span><b>Hobbys:</b></span>
+          <ul>
+            <li>Videojuegos</li>
+            <li>Anime</li>
+            <li>Musica</li>
+            <li>Streams</li>
+            <li>Programar</li>
+          </ul>
+          <span><b>Streamers Favs:</b></span>
+          <ul>
+            <li><a href="https://twitter.com/DonReborn2">Reborn</a></li>
+            <li><a href="https://twitter.com/auronplay">Auron</a></li>
+          </ul>
+        </div>
+      </section>
+      <!--Frases en la tarjeta-->
+      <footer id="CardBottom">
+        <div class="column">
+          <blockquote id = "Frases"></blockquote>
+        </div>
+      </footer>
+    </div>
+    <!--Pie del HTML - Fuera de la tarjeta-->
+    <footer id="final">
+      <span>Developed & Designed by HarukaSan with</span>
+      <a href="https://bulma.io">
+        <img
+          src="https://bulma.io/assets/brand/Bulma%20Logo.png"
+          alt="Made with Bulma"
+          width="64"
+          height="24"
+        />
+      </a>
+    </footer>
+    <audio id="Repmusica"></audio>
+  </body>
 </html>
