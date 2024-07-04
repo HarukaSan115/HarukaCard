@@ -1,3 +1,10 @@
+/*
+Autor: HarukaSan115
+Fecha de actualizacion: 09/Feb/2024
+Fecha de Salida: 03/Jul/2024
+Version 2.0 ~ Rework completo
+*/
+
 /*Variable Globaless*/
 //Variables de funcion
 var time;
@@ -350,7 +357,6 @@ $(document).ready(function () {
   SelImgPortada();
   getEdad();
   SelFrase();
-  $("#ImagenPerfil figure img").attr("src", "Assets/Imagenes/Icono.jpg");
   //FechaVisita = new Date();
   //setCookie("UltimaVisita", FechaVisita.toUTCString(), 2);
 
