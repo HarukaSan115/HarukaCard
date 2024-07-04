@@ -44,8 +44,8 @@ var mediaqueryLarge = window.matchMedia("(min-width: 1166px) and (min-height: 61
 
 function setCookie(cname, cvalue, exdays) {
   const d = new Date();
-  d.setTime(d.getTime() + (exdays*24*60*60*1000));
-  let expires = "expires="+ d.toUTCString();
+  d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+  let expires = "expires=" + d.toUTCString();
   document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 }
 
@@ -53,7 +53,7 @@ function getCookie(cname) {
   let name = cname + "=";
   let decodedCookie = decodeURIComponent(document.cookie);
   let ca = decodedCookie.split(';');
-  for(let i = 0; i <ca.length; i++) {
+  for (let i = 0; i < ca.length; i++) {
     let c = ca[i];
     while (c.charAt(0) == ' ') {
       c = c.substring(1);
@@ -84,13 +84,13 @@ function checkCookie() {
 }
 
 function SelImgPortada() {
-  if(window.matchMedia("(min-width: 1166px)").matches){
+  if (window.matchMedia("(min-width: 1166px)").matches) {
     $("#HarukaPresentacion img").attr("src", "Assets/Imagenes/Presentacion6.gif");
     return;
   }
-  else if(window.matchMedia("(min-width: 750px)").matches) {
-    let random = parseInt(Math.random()* 100);
-    switch(true){
+  else if (window.matchMedia("(min-width: 750px)").matches) {
+    let random = parseInt(Math.random() * 100);
+    switch (true) {
       case (random < 25):
         $("#HarukaPresentacion img").attr("src", "Assets/Imagenes/Presentacion1.gif");
         break;
@@ -101,21 +101,21 @@ function SelImgPortada() {
         $("#HarukaPresentacion img").attr("src", "Assets/Imagenes/Presentacion5.gif");
         break;
       case (random > 75 && random <= 95):
-          $("#HarukaPresentacion img").attr("src", "Assets/Imagenes/Presentacion4.gif");
-          break;
+        $("#HarukaPresentacion img").attr("src", "Assets/Imagenes/Presentacion4.gif");
+        break;
       case (random > 95):
         $("#HarukaPresentacion img").attr("src", "Assets/Imagenes/Presentacion6.gif");
         break;
     }
     return;
   }
-  else if(window.matchMedia("(min-width: 600px)").matches){
+  else if (window.matchMedia("(min-width: 600px)").matches) {
     $("#HarukaPresentacion img").attr("src", "Assets/Imagenes/Presentacion4.gif");
     return;
   }
-  else 
+  else
     $("#HarukaPresentacion img").attr("src", "Assets/Imagenes/Presentacion2.gif");
-    return;
+  return;
 }
 
 function ReajusteTarjeta() {
@@ -170,20 +170,20 @@ function AjustarPerfil() {
     $("#ImagenPerfil figure")
       .removeClass("image is-96x96")
       .addClass("image is-128x128");
-      if(document.getElementById("TextoNombre").textContent ==  "Haruka-San ~ @HarukaSan115"){
-        document.getElementById("TextoNombre").textContent = "Haruka-San";
-      }
+    if (document.getElementById("TextoNombre").textContent == "Haruka-San ~ @HarukaSan115") {
+      document.getElementById("TextoNombre").textContent = "Haruka-San";
+    }
   } else {
     $("#ImagenPerfil figure")
       .removeClass("image is-128x128")
       .addClass("image is-96x96");
-      if(document.getElementById("TextoNombre").textContent ==  "Haruka-San"){
-        document.getElementById("TextoNombre").textContent = "Haruka-San ~ @HarukaSan115";
-      }
+    if (document.getElementById("TextoNombre").textContent == "Haruka-San") {
+      document.getElementById("TextoNombre").textContent = "Haruka-San ~ @HarukaSan115";
+    }
   }
 }
 
-function AjustarNombre(){
+function AjustarNombre() {
   let Nombre
   if (mediaqueryPortrait.matches) {
     Nombre = "aruka-San";
@@ -198,7 +198,7 @@ function TextoAnimado(Texto, IsNombre, Velocidad) {
   let ArrayTexto = Texto.split("");
   let contador = 0;
   let ImprimirTexto = setInterval(function () {
-    if(IsNombre == true){
+    if (IsNombre == true) {
       if (ArrayTexto[contador] == " ") {
         document.getElementById("TextoNombre").textContent +=
           ArrayTexto[contador];
@@ -215,7 +215,7 @@ function TextoAnimado(Texto, IsNombre, Velocidad) {
         Blink();
       }
     }
-    else{
+    else {
       if (ArrayTexto[contador] == " ") {
         document.getElementById("Frases").textContent +=
           ArrayTexto[contador];
@@ -250,29 +250,29 @@ function Blink() {
   CursorParpadeante = setTimeout("Blink()", 500);
 }
 
-function CargarTarjeta(){
-  if ($("#HarukaPresentacion img").attr("src") == "" && $("EdadRealTime").text() == ""){
-    PuntosAnim = setInterval(function() { 
-    switch(puntos){
-      case 1:
-        document.getElementById("TextoLoading").textContent = "Cargando tarjeta.";
-        puntos++;
-        break;
-      case 2:
-        document.getElementById("TextoLoading").textContent = "Cargando tarjeta..";
-        puntos++;
-        break;
-      case 3:
-        document.getElementById("TextoLoading").textContent = "Cargando tarjeta...";
-        puntos = 1;
-        break;
-    }
-  }, 350);
+function CargarTarjeta() {
+  if ($("#HarukaPresentacion img").attr("src") == "" && $("EdadRealTime").text() == "") {
+    PuntosAnim = setInterval(function () {
+      switch (puntos) {
+        case 1:
+          document.getElementById("TextoLoading").textContent = "Cargando tarjeta.";
+          puntos++;
+          break;
+        case 2:
+          document.getElementById("TextoLoading").textContent = "Cargando tarjeta..";
+          puntos++;
+          break;
+        case 3:
+          document.getElementById("TextoLoading").textContent = "Cargando tarjeta...";
+          puntos = 1;
+          break;
+      }
+    }, 350);
     Cargando = setTimeout("CargarTarjeta()", 100);
   }
-  else{
+  else {
     AjustarNombre();
-    $("#loadingScreen").fadeTo(1250 , 0, function() {
+    $("#loadingScreen").fadeTo(1250, 0, function () {
       clearTimeout(Cargando);
       clearTimeout(PuntosAnim);
       $(document.body).children("#loadingScreen").remove();
@@ -281,60 +281,60 @@ function CargarTarjeta(){
   }
 }
 
-function ReproducirMusica(){
+/*function ReproducirMusica() {
   $("#Repmusica").attr("src", "Assets/Musica/Danganronpa - Trial Underground.wav");
   $("#Repmusica").attr("type", "Audio/WAV");
   document.getElementById("Repmusica").load();
   document.getElementById("Repmusica").loop = true;
   document.getElementById("Repmusica").volume = 0.0255;
-  setTimeout(function() {
+  setTimeout(function () {
     document.getElementById("Repmusica").play();
   }, 5000);
-}
+}*/
 
 //function NuevaNoti(){
-  //setTimeout(function() {
-    //if(getCookie("UltimaVisita") == "" /* && Comprara Fecha de la cookie con la fecha actual*/){
-      /*FechaVisita = new Date();
-      console.log(getCookie("UltimaVisita"));
-      alert(document.cookie);
-      $(".notification span").text("Muchas gracias por visitar mi tarjeta <3");
-      $(".notification span").after("<br><span>Si ves un bug notificalo por DM en X</span>");
-      $(".notification")
-             .removeClass("is-slide-left")
-             .removeClass("is-danger")
-             .removeClass("is-sucess")
-             .addClass("is-info")
-             .addClass("is-slide-right");
-      $(".notification").show();
-      setCookie("UltimaVisita", FechaVisita.toUTCString(), 2);
-    }
-    else{
-      $(".notification span").text("Has vuelto a visitar mi tarjeta OwO");
-      $(".notification span").after("<br><span>Muchas gracias por revisitar mi tarjeta <3></span>");
-      $(".notification")
-             .removeClass("is-slide-left")
-             .removeClass("is-danger")
-             .removeClass("is-sucess")
-             .addClass("is-info")
-             .addClass("is-slide-right");
-      $(".notification").show();
-      setCookie("UltimaVisita", FechaVisita.toUTCString(), 2);
-    }
-    setTimeout(function (){
-      $(".notification")
-             .removeClass("is-slide-right")
-             .addClass("is-slide-left");
-             setTimeout(function() {
-              $(".notification").remove();
-            }, 2500);
-    }, 10000)*/
-  //}, 3000/*12000*/);*
+//setTimeout(function() {
+//if(getCookie("UltimaVisita") == "" /* && Comprara Fecha de la cookie con la fecha actual*/){
+/*FechaVisita = new Date();
+console.log(getCookie("UltimaVisita"));
+alert(document.cookie);
+$(".notification span").text("Muchas gracias por visitar mi tarjeta <3");
+$(".notification span").after("<br><span>Si ves un bug notificalo por DM en X</span>");
+$(".notification")
+       .removeClass("is-slide-left")
+       .removeClass("is-danger")
+       .removeClass("is-sucess")
+       .addClass("is-info")
+       .addClass("is-slide-right");
+$(".notification").show();
+setCookie("UltimaVisita", FechaVisita.toUTCString(), 2);
+}
+else{
+$(".notification span").text("Has vuelto a visitar mi tarjeta OwO");
+$(".notification span").after("<br><span>Muchas gracias por revisitar mi tarjeta <3></span>");
+$(".notification")
+       .removeClass("is-slide-left")
+       .removeClass("is-danger")
+       .removeClass("is-sucess")
+       .addClass("is-info")
+       .addClass("is-slide-right");
+$(".notification").show();
+setCookie("UltimaVisita", FechaVisita.toUTCString(), 2);
+}
+setTimeout(function (){
+$(".notification")
+       .removeClass("is-slide-right")
+       .addClass("is-slide-left");
+       setTimeout(function() {
+        $(".notification").remove();
+      }, 2500);
+}, 10000)*/
+//}, 3000/*12000*/);*
 //}
 
-function SelFrase(){
+function SelFrase() {
   let random = 9;
-  switch(true){
+  switch (true) {
     case random >= 0 && random < 10:
       TextoAnimado(Frases[1], false, 50);
       /*Codigo Aqui*/
@@ -350,7 +350,7 @@ $(document).ready(function () {
   SelImgPortada();
   getEdad();
   SelFrase();
-
+  $("#ImagenPerfil figure img").attr("src", "Assets/Imagenes/Icono.jpg");
   //FechaVisita = new Date();
   //setCookie("UltimaVisita", FechaVisita.toUTCString(), 2);
 
@@ -395,7 +395,8 @@ $(document).ready(function () {
       }, 2500);
     },2000);
   });*/
-const images = [
+
+  const images = [
     'icono.jpg',
     'Presentacion1.gif',
     'Presentacion2.gif',
@@ -414,6 +415,7 @@ const images = [
     const img = new Image();
     img.src = imagePath + image;
   });
+
 });
 
 $(window).on("resize", function () {
