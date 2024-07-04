@@ -47,7 +47,6 @@ function setCookie(cname, cvalue, exdays) {
   d.setTime(d.getTime() + (exdays*24*60*60*1000));
   let expires = "expires="+ d.toUTCString();
   document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-  console.log(cname + "=" + cvalue + ";" + expires + ";path=C:/Users/Jorge/Downloads/HarukaCard/index.html/");
 }
 
 function getCookie(cname) {
@@ -87,53 +86,35 @@ function checkCookie() {
 function SelImgPortada() {
   if(window.matchMedia("(min-width: 1166px)").matches){
     $("#HarukaPresentacion img").attr("src", "Assets/Imagenes/Presentacion6.gif");
-    console.log("1");
-    console.log(window.matchMedia("(min-width: 1166px)"));
     return;
   }
   else if(window.matchMedia("(min-width: 750px)").matches) {
     let random = parseInt(Math.random()* 100);
-    console.log("awawa");
-    console.log(random);
     switch(true){
       case (random < 25):
         $("#HarukaPresentacion img").attr("src", "Assets/Imagenes/Presentacion1.gif");
-        console.log("2");
-        console.log(window.matchMedia("(min-width: 1166px)"));
         break;
       case (random >= 25 && random <= 50):
         $("#HarukaPresentacion img").attr("src", "Assets/Imagenes/Presentacion3.gif");
-        console.log("3");
-        console.log(window.matchMedia("(min-width: 1166px)"));
         break;
       case (random > 50 && random <= 75):
         $("#HarukaPresentacion img").attr("src", "Assets/Imagenes/Presentacion5.gif");
-        console.log("4");
-        console.log(window.matchMedia("(min-width: 1166px)"));
         break;
       case (random > 75 && random <= 95):
           $("#HarukaPresentacion img").attr("src", "Assets/Imagenes/Presentacion4.gif");
-          console.log("5");
-          console.log(window.matchMedia("(min-width: 1166px)"));
           break;
       case (random > 95):
         $("#HarukaPresentacion img").attr("src", "Assets/Imagenes/Presentacion6.gif");
-        console.log("6");
-        console.log(window.matchMedia("(min-width: 1166px)"));
         break;
     }
     return;
   }
   else if(window.matchMedia("(min-width: 600px)").matches){
     $("#HarukaPresentacion img").attr("src", "Assets/Imagenes/Presentacion4.gif");
-    console.log("7");
-    console.log(window.matchMedia("(min-width: 1166px)"));
     return;
   }
   else 
     $("#HarukaPresentacion img").attr("src", "Assets/Imagenes/Presentacion2.gif");
-    console.log("8");
-    console.log(window.matchMedia("(min-width: 1166px)"));
     return;
 }
 
@@ -149,8 +130,6 @@ function ReajusteTarjeta() {
     document.getElementById("TempTexto").textContent =
       "Mayormente soft UwU";
   } else {
-    console.log(mediaqueryLarge.matches);
-    console.log("UwU");
     pageScroll();
     document.getElementById("TempTexto").textContent = "Soft";
   }
@@ -158,11 +137,9 @@ function ReajusteTarjeta() {
 
 function append_clone() {
   if (PosScrAct != PosScrPas) {
-    console.log("No Creado");
     PosScrPas = PosScrAct;
   } else {
     $("#AreaRedes div").clone().appendTo("#AreaRedes");
-    console.log("Nuevo Creado");
     PosScrPas = PosScrAct;
   }
 }
@@ -218,7 +195,6 @@ function AjustarNombre(){
 
 
 function TextoAnimado(Texto, IsNombre, Velocidad) {
-  console.log("a");
   let ArrayTexto = Texto.split("");
   let contador = 0;
   let ImprimirTexto = setInterval(function () {
@@ -234,7 +210,6 @@ function TextoAnimado(Texto, IsNombre, Velocidad) {
           ArrayTexto[contador];
         contador++;
       }
-      console.log("b");
       if (contador == ArrayTexto.length) {
         clearInterval(ImprimirTexto);
         Blink();
@@ -252,7 +227,6 @@ function TextoAnimado(Texto, IsNombre, Velocidad) {
           ArrayTexto[contador];
         contador++;
       }
-      console.log("b");
       if (contador == ArrayTexto.length) {
         clearInterval(ImprimirTexto);
       }
@@ -278,30 +252,25 @@ function Blink() {
 
 function CargarTarjeta(){
   if ($("#HarukaPresentacion img").attr("src") == "" && $("EdadRealTime").text() == ""){
-    console.log("Componentes no cargados");
     PuntosAnim = setInterval(function() { 
     switch(puntos){
       case 1:
         document.getElementById("TextoLoading").textContent = "Cargando tarjeta.";
-        console.log(puntos);
         puntos++;
         break;
       case 2:
         document.getElementById("TextoLoading").textContent = "Cargando tarjeta..";
         puntos++;
-        console.log(puntos);
         break;
       case 3:
         document.getElementById("TextoLoading").textContent = "Cargando tarjeta...";
         puntos = 1;
-        console.log(puntos);
         break;
     }
   }, 350);
     Cargando = setTimeout("CargarTarjeta()", 100);
   }
   else{
-    console.log("Componentes cargados");
     AjustarNombre();
     $("#loadingScreen").fadeTo(1250 , 0, function() {
       clearTimeout(Cargando);
@@ -321,7 +290,6 @@ function ReproducirMusica(){
   setTimeout(function() {
     document.getElementById("Repmusica").play();
   }, 5000);
-  console.log("Ahora Resproduciendo");
 }
 
 //function NuevaNoti(){

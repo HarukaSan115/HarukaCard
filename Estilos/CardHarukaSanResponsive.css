@@ -1,0 +1,1405 @@
+/*
+Autor: HarukaSan115
+Fecha de actualizacion: 09/Feb/2024
+Fecha de Salida:
+Version 2.0 ~ Rework completo
+*/
+
+/*Oculta el scroll para todos los diseños*/
+::-webkit-scrollbar {
+    display: none;
+}
+
+.notification.is-info, .notification.is-danger, .notification.is-success{
+	position: absolute;
+	top:95%;
+	transform: translate(0, -100%);
+	padding-inline: 25px 50px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	font-family: "TW Cen MT";
+	font-weight: bold;
+	font-size: 18px;
+	z-index: 9999;
+}
+
+.notification.is-info span, .notification.is-danger span, .notification.is-success span{
+	text-align: center;
+}
+
+.notification.is-info .buttons{
+	justify-content: center;
+}
+
+.notification.is-info .buttons .button{
+	width: 70px;
+	height: 30px;
+	padding: 6px 24px;
+	font-weight: bold !important;
+	font-size: 18px !important;
+}
+
+	/***** Slide Right *****/
+	.is-slide-right {
+		animation: 3s slide-right;
+	  }
+	  @keyframes slide-right {
+		from {
+		  margin-left: -100%;
+		}
+		to {
+		  margin-left: 0%;
+		}
+	}
+
+	/***** Slide Right *****/
+	.is-slide-left {
+		animation: 3s slide-left;
+	  }
+	  @keyframes slide-left {
+		from {
+		  margin-left: 0%;
+		}
+		to {
+		  margin-left: -100%;
+		}
+	}
+
+	#Frases{
+		vertical-align: center;
+	}
+/*
+Ajustar las notificaciones de la tarjeta 
+Agregar script del registro de las Frases
+Verificar exahustivamente los colores definitivos y el degradado
+*/
+
+/*Cuarto diseño para telefonos en general en portrait*/
+@media screen and ((min-width: 0px) and (max-width: 600px)){
+	html,
+	body {
+		background: linear-gradient(to bottom right, #e96443, #904e95);
+		overflow: hidden;
+		background-size: cover;
+		font: 20px Tw Cen MT;
+	}
+
+	.notification.is-info, .notification.is-danger, .notification.is-success{
+		position: fixed;
+		top:100%;
+		width: 100%;
+		transform: translate(0, -100%);
+		text-align: center;
+		padding-inline: 25px 50px;
+		padding-top: 20px;
+		padding-bottom: 20px;
+		font-family: "TW Cen MT";
+		font-weight: bold;
+		font-size: 18px;
+		z-index: 9999;
+	}
+
+	#loadingScreen{
+		overflow: hidden;
+		position: fixed;
+		height: 100vh;
+		width: 100vw;
+		background-color: #313131;
+		display: flex;
+		flex-flow: column wrap;
+		justify-content: center;
+		align-items: center;
+		z-index: 9999;
+		font: 48px Tw Cen MT;
+		color: #eeeeee;
+		-webkit-text-stroke-width: 1px;
+		-webkit-text-stroke-color: #000000;
+	}
+
+	#loadingScreen #final{
+		color: #eeeeee;
+		position: absolute;
+		top: 95%;
+		-webkit-text-stroke-width: 0px;
+	}
+	
+	.canvas {
+		align-items: center;
+		background: #eeeeee40;
+		border-radius: 50%;
+		box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+		display: flex;
+		height: 4em;
+		justify-content: center;
+		margin: 0px;
+		width: 4em;
+	  }
+	
+	  /* Spinner 5 starts here */
+	.spinner {
+		position: absolute;
+		animation: spinnerFive 0.8s linear infinite;
+		border: solid 2em #330036;
+		border-right: solid 2em transparent;
+		border-left: solid 2em transparent;
+		border-radius: 100%;
+		width: 0px;
+		height: 0px;
+	  }
+	  
+	  @keyframes spinnerFive {
+		0% {
+		  transform: rotate(0deg);
+		}
+		50% {
+		  transform: rotate(60deg)
+		}
+		100% {
+		  transform: rotate(360deg);
+		}
+	  }
+	  /* Spinner 5 ends here */
+	
+	  #Engranaje{
+		position: absolute;
+		animation-name: ckw;
+		animation-duration: 2s;
+		animation-iteration-count: infinite;
+		transform-origin: 50% 50%;
+		display: inline-block;
+		animation-timing-function: linear;
+		color: #000000;
+		stroke: #eeeeee;
+		stroke-width: 5px;
+	}
+	
+	@keyframes ckw {
+		0% {
+			transform: rotate(0deg);
+		}
+		100% {
+			transform: rotate(-360deg);
+		}
+	}
+
+	#ContenedorTarjeta {
+		position: static;
+		width: 100%;
+		font: 20px Tw Cen MT;
+
+		padding: 0px;
+		border: black 3px solid;
+		border-top-left-radius: 8px;
+		border-top-right-radius: 8px;
+		border-bottom-right-radius: 8px;
+		border-bottom-left-radius: 8px;
+		background-color: #ffdebe;
+	}
+
+	#AreaPortada {
+		width: 100%;
+	}
+
+	#HarukaPresentacion {
+		position: static;
+		width: 100%;
+		height: 174px;
+	}
+
+	#ImagenPortada {
+		width: 100%;
+		height: 110px;
+	}
+
+	#AreaDescripcion {
+		overflow: hidden;
+		display: flex;
+		flex-wrap: wrap;
+		align-content: start;
+		justify-content: center;
+		column-gap: 5px;
+		background-color: #631010;
+	}
+
+	#ImagenPerfil {
+		margin-left: 5px;
+		margin-top: auto;
+		margin-bottom: auto;
+	}
+
+	#HarukaIcono {
+		border: 5px black solid;
+		border-radius: 100%;
+	}
+
+	#ContenedorNombreEtiquetas {
+		display: flex;
+		flex-flow: column nowrap;
+		justify-content: center;
+		align-items: center;
+		flex-basis: 100%;
+		row-gap: 5px;
+		margin-bottom: 10px;
+	}
+
+	#TextoNombre, #Cursor{
+		margin-bottom: 3px;
+		font-weight: bold;
+		/*font-size: 2.5rem;*/
+		font-size: 40px;
+		flex-basis: content;
+		color: white;
+		-webkit-text-stroke: 1.5px black;
+	}
+
+	#Etiquetas span {
+		margin-bottom: 3px;
+		font-weight: bold;
+		margin-bottom: 0px;
+		/*height: 5.208vh;*/
+	}
+
+	.tag {
+		font-size: 16px !important;
+		margin-bottom: 8px;
+		margin-right: 8px;
+		padding-inline: 12px;
+		width: content;
+		height: 32px;
+	}
+
+	.tags{
+		justify-content: center !important;
+	}
+
+	#AreaRedes {
+		background-color: black;
+		width: fit-content;
+
+		display: flex;
+		flex-flow: row nowrap;
+		flex-basis: 100%;
+		column-gap: 45px;
+
+		align-items: center;
+		justify-content: space-evenly;
+		overflow: hidden;
+	}
+
+	#Redes1, #Redes2{
+		display: flex;
+		flex-flow: row nowrap;
+		column-gap: 45px;
+		justify-content: space-evenly;
+	}
+
+	#RRSS {
+		display: flex;
+		flex-flow: row nowrap;
+		column-gap: 8px;
+		justify-content: start;
+		color: white;
+	}
+
+	#RRSS span {
+		margin-top: auto;
+		margin-bottom: auto;
+	}
+
+	#RRSS a {
+		text-decoration: none;
+		font-size: 16px;
+		color: white !important;
+	}
+
+	#RRSS a:hover {
+		color: #500463 !important;
+	}
+
+	#SeccionContenido {
+		margin-top: 8px;
+		height: calc(85% - 42.03%);
+		display: flex;
+		flex-direction: column;
+		margin-bottom: 8px;
+	}
+
+	#SeccionContenido .column {
+		border-left: 0px solid black;
+		display: flex;
+		flex-direction: column;
+		flex-basis: 33%;
+		overflow: hidden;
+		justify-content: center;
+		flex-grow: 0px;
+		row-gap: 3px;
+		font-size: 18px;
+		color: #313131;
+		margin-inline: 37px;
+		padding-bottom: 15px;
+		border-bottom: 3px solid black;
+	}
+
+	#SeccionContenido .column a{
+		color: #500463 !important;
+	}
+
+	#SeccionContenido .column:last-child {
+		border-bottom: 0px solid black;
+	}
+
+	#SeccionContenido .column ul {
+		list-style-type: circle;
+		padding-inline-start: 40px;
+	}
+
+	#CardBottom .column {
+		border-top: 3px solid black;
+		padding-block: 12px;
+		margin-inline: 20px;
+		justify-content: center;
+		color: #313131;
+		text-align: center;
+		font-weight: bold;
+	}
+
+	#final {
+		margin-top: 10px;
+		color: black;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: center;
+		column-gap: 7px;
+		row-gap: 0px;
+		font: 20px Tw Cen MT;
+		font-style: italic;
+		margin-bottom: 10px;
+	}
+
+	#final a {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	#final a img {
+		width: 4rem;
+		height: 1.05rem;
+	}
+
+	#final span {
+		text-align: left;
+		width: 331px;
+	}
+
+	@media screen and ((max-width: 402px)){
+		#final {
+			margin-top: 10px;
+			color: black;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			row-gap: 3px;
+			font: 20px Tw Cen MT;
+			font-style: italic;
+			margin-bottom: 10px;
+		}
+
+		#final span {
+			text-align: center;
+			width: 200px;
+		}
+
+		#loadingScreen{
+			overflow: hidden;
+			position: fixed;
+			height: 100%;
+			width: 100%;
+			background-color: #313131;
+			display: flex;
+			flex-flow: column wrap;
+			justify-content: center;
+			align-items: center;
+			z-index: 9999;
+			font: 32px Tw Cen MT;
+			color: #eeeeee;
+			-webkit-text-stroke-width: 0px;
+			-webkit-text-stroke-color: #000000;
+		}
+
+		#loadingScreen #final{
+			position: absolute;
+			color: #eeeeee;
+			top: 87%;
+		}
+	}
+}
+
+/*Tercer diseño para telefonos en general en landscape*/
+@media screen and (((min-width:600px) and (max-width: 812px)) or ((min-width:600px) and (max-height: 665px))) {
+	html,
+	body {
+		background: linear-gradient(to bottom right, #e96443, #904e95);
+		overflow-x: hidden;
+		overflow-y: auto;
+		width: 100%;
+		height: 100%;
+	}
+
+	#loadingScreen{
+		overflow: hidden;
+		position: fixed;
+		height: 100%;
+		width: 100%;
+		background-color: #313131;
+		display: flex;
+		flex-flow: column wrap;
+		justify-content: center;
+		align-items: center;
+		z-index: 9999;
+		font: 72px Tw Cen MT;
+		color: #eeeeee;
+		-webkit-text-stroke-width: 2px;
+		-webkit-text-stroke-color: #000000;
+	}
+
+	#loadingScreen #final{
+		position: absolute;
+		top: 95%;
+		color: #eeeeee;
+		-webkit-text-stroke-width: 0px;
+	}
+
+	.canvas {
+		align-items: center;
+		background: #eeeeee40;
+		border-radius: 50%;
+		box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+		display: flex;
+		height: 2.5em;
+		justify-content: center;
+		margin: 0px;
+		width: 2.5em;
+	  }
+	
+	  /* Spinner 5 starts here */
+	.spinner {
+		position: absolute;
+		animation: spinnerFive 0.8s linear infinite;
+		border: solid 1.25em #330036;
+		border-right: solid 1.25em transparent;
+		border-left: solid 1.25em transparent;
+		border-radius: 100%;
+		width: 0px;
+		height: 0px;
+	  }
+	  
+	  @keyframes spinnerFive {
+		0% {
+		  transform: rotate(0deg);
+		}
+		50% {
+		  transform: rotate(60deg)
+		}
+		100% {
+		  transform: rotate(360deg);
+		}
+	  }
+	  /* Spinner 5 ends here */
+	
+	  #Engranaje{
+		position: absolute;
+		animation-name: ckw;
+		animation-duration: 2s;
+		animation-iteration-count: infinite;
+		transform-origin: 50% 50%;
+		display: inline-block;
+		animation-timing-function: linear;
+		color: #000000;
+		stroke: #eeeeee;
+		stroke-width: 5px;
+	}
+	
+	@keyframes ckw {
+		0% {
+			transform: rotate(0deg);
+		}
+		100% {
+			transform: rotate(-360deg);
+		}
+	}
+
+	#ContenedorTarjeta {
+		position: static;
+		width: 100%;
+		font: 20px Tw Cen MT;
+
+		padding: 0px;
+		border: black 3px solid;
+		border-top-left-radius: 8px;
+		border-top-right-radius: 8px;
+		border-bottom-right-radius: 8px;
+		border-bottom-left-radius: 8px;
+		background-color: #ffdebe;
+	}
+
+	#AreaPortada {
+		width: 100%;
+	}
+
+	#HarukaPresentacion {
+		position: static;
+		width: 100%;
+		height: 100%;
+	}
+
+	#ImagenPortada {
+		width: 100%;
+		height: 150px;
+	}
+
+	#AreaDescripcion {
+		overflow: hidden;
+		display: flex;
+		flex-wrap: wrap;
+		align-content: start;
+		justify-content: center;
+		column-gap: 5px;
+		background-color: #631010;
+	}
+
+	#ImagenPerfil {
+		margin-left: 5px;
+		margin-top: auto;
+		margin-bottom: auto;
+	}
+
+	#HarukaIcono {
+		border: 3px black solid;
+		border-radius: 100%;
+	}
+
+	#ContenedorNombreEtiquetas {
+		display: flex;
+		flex-flow: column nowrap;
+		justify-content: center;
+		align-items: flex-start;
+		flex-basis: 60%;
+		flex-grow: 1;
+		margin-bottom: 5px;
+		row-gap: 5px;
+	}
+
+	#TextoNombre, #Cursor{
+		margin-bottom: 3px;
+		font-weight: bold;
+		/*font-size: 2.5rem;*/
+		font-size: 40px !important;
+		flex-basis: content;
+		color: white;
+		-webkit-text-stroke: 1.5px black;
+	}
+
+	#Etiquetas span {
+		margin-bottom: 3px;
+		font-weight: bold;
+		margin: 0px;
+		/*height: 5.208vh;*/
+	}
+
+	.tag {
+		font-size: 16px !important;
+		margin-bottom: 8px;
+		margin-right: 8px;
+		padding-inline: 12px;
+		width: content;
+		height: 32px;
+	}
+
+	.tags{
+		justify-content: flex-start !important;
+	}
+
+	#AreaRedes {
+		background-color: black;
+		width: fit-content;
+
+		display: flex;
+		flex-flow: row nowrap;
+		flex-basis: 100%;
+		column-gap: 30px;
+
+		align-items: center;
+		justify-content: space-evenly;
+		overflow: hidden;
+	}
+
+	#Redes1, #Redes2{
+		display: flex;
+		flex-flow: row nowrap;
+		column-gap: 30px;
+		justify-content: space-evenly;
+	}
+
+	#RRSS {
+		display: flex;
+		flex-flow: row nowrap;
+		column-gap: 8px;
+		justify-content: start;
+		color: white;
+	}
+
+	#RRSS span {
+		margin-top: auto;
+		margin-bottom: auto;
+	}
+
+	#RRSS a {
+		text-decoration: none;
+		font-size: 16px;
+		color: white;
+	}
+
+	#RRSS a:hover {
+		color: #500463 !important;
+	}
+
+	#SeccionContenido {
+		margin-top: 8px;
+		height: calc(85% - 42.03%);
+		display: flex !important;
+		flex-direction: row;
+		margin-bottom: 8px;
+	}
+
+	#SeccionContenido .column {
+		display: flex;
+		flex-direction: column;
+		flex-basis: 33%;
+		overflow: hidden;
+		justify-content: center;
+		flex-grow: 0px;
+		row-gap: 3px;
+		font-size: 18px;
+		margin-inline: 0px;
+		padding: 12px;
+		color: #313131;
+		border-bottom: 0px solid black;
+	}
+
+	#SeccionContenido .column a{
+		color: #500463 !important;
+	}
+
+	#SeccionContenido .column:nth-child(2) {
+		border-left: 3px solid black;
+		border-right: 3px solid black;
+	}
+
+	#SeccionContenido .column:nth-child(1) {
+		margin-left: 20px;
+	}
+
+	#SeccionContenido .column:last-child {
+		margin-right: 12px;
+	}
+
+	#SeccionContenido .column ul {
+		list-style-type: circle;
+		padding-inline-start: 40px;
+	}
+
+	#CardBottom .column {
+		border-top: 3px solid black;
+		padding: 0rem;
+		margin-inline: 20px;
+		color: #313131;
+		text-align: center;
+		font-weight: bold;
+	}
+
+	#final {
+		margin-top: 10px;
+		color: black;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: center;
+		column-gap: 7px;
+		row-gap: 0px;
+		font: 20px Tw Cen MT;
+		font-style: italic;
+		margin-bottom: 10px;
+	}
+
+	#final a {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	#final a img {
+		width: 4rem;
+		height: 1.05rem;
+	}
+
+	#final span {
+		text-align: left;
+		width: 331px;
+	}
+}
+
+/*Segundo diseño para tablets y Laptops / Desktops con pantallas pequeñas*/
+@media screen and ((min-width: 812px) and (max-width: 1166px)) and (min-height: 666px){
+
+	html,
+	body {
+		background: linear-gradient(to bottom right, #e96443, #904e95);
+		width: 100%;
+		height: 100%;
+		overflow: auto;
+	}
+
+	#loadingScreen{
+		overflow: hidden;
+		position: fixed;
+		height: 100%;
+		width: 100%;
+		background-color: #313131;
+		display: flex;
+		flex-flow: column wrap;
+		justify-content: center;
+		align-items: center;
+		z-index: 9999;
+		font: 96px Tw Cen MT;
+		color: #eeeeee;
+		-webkit-text-stroke-width: 2px;
+		  -webkit-text-stroke-color: #000000;
+	}
+	
+	#loadingScreen #final{
+		color: #eeeeee;
+		-webkit-text-stroke-width: 0px;
+	}
+	
+	.canvas {
+		align-items: center;
+		background: #eeeeee40;
+		border-radius: 50%;
+		box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+		display: flex;
+		height: 2em;
+		justify-content: center;
+		margin: 0px;
+		width: 2em;
+	  }
+	
+	  /* Spinner 5 starts here */
+	.spinner {
+		position: absolute;
+		animation: spinnerFive 0.8s linear infinite;
+		border: solid 1em #330036;
+		border-right: solid 1em transparent;
+		border-left: solid 1em transparent;
+		border-radius: 100%;
+		width: 0px;
+		height: 0px;
+	  }
+	  
+	  @keyframes spinnerFive {
+		0% {
+		  transform: rotate(0deg);
+		}
+		50% {
+		  transform: rotate(60deg)
+		}
+		100% {
+		  transform: rotate(360deg);
+		}
+	  }
+	  /* Spinner 5 ends here */
+	
+	  #Engranaje{
+		position: absolute;
+		animation-name: ckw;
+		animation-duration: 2s;
+		animation-iteration-count: infinite;
+		transform-origin: 50% 50%;
+		display: inline-block;
+		animation-timing-function: linear;
+		color: #000000;
+		stroke: #eeeeee;
+		stroke-width: 5px;
+	}
+	
+	@keyframes ckw {
+		0% {
+			transform: rotate(0deg);
+		}
+		100% {
+			transform: rotate(-360deg);
+		}
+	}
+
+	#ContenedorTarjeta {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		margin: auto;
+
+		width: 800px;
+		height: 600px;
+		font: 20px Tw Cen MT;
+
+		padding: 0px;
+		border: black 3px solid;
+		border-top-left-radius: 8px;
+		border-top-right-radius: 8px;
+		border-bottom-right-radius: 8px;
+		border-bottom-left-radius: 8px;
+		background-color: #ffdebe;
+		z-index: 2;
+	}
+
+	#AreaPortada {
+		width: 100%;
+	}
+
+	#HarukaPresentacion {
+		position: static;
+		width: 100%;
+		height: 100%;
+	}
+
+	#ImagenPortada {
+		width: 100%;
+		height: 150px;
+	}
+
+	#AreaDescripcion {
+		overflow: hidden;
+		display: flex;
+		flex-wrap: wrap;
+		align-content: start;
+		justify-content: center;
+		column-gap: 5px;
+		background-color: #631010;
+	}
+
+	#ImagenPerfil {
+		margin-left: 5px;
+		margin-top: auto;
+		margin-bottom: auto;
+	}
+
+	#HarukaIcono {
+		border: 3px black solid;
+		border-radius: 100%;
+	}
+
+	#ContenedorNombreEtiquetas {
+		display: flex;
+		flex-flow: column nowrap;
+		justify-content: center;
+		align-items: flex-start;
+		flex-basis: 86%;
+		row-gap: 5px;
+	}
+
+	#TextoNombre, #Cursor{
+		margin-bottom: 3px;
+		font-weight: bold;
+		/*font-size: 2.5rem;*/
+		font-size: 40px !important;
+		flex-basis: content;
+		color: white;
+		-webkit-text-stroke: 1.5px black;
+	}
+
+	#Etiquetas span {
+		margin-bottom: 3px;
+		font-weight: bold;
+		margin: 0px;
+		/*height: 5.208vh;*/
+	}
+
+	.tag {
+		font-size: 16px !important;
+		margin-bottom: 8px;
+		margin-right: 8px;
+		padding-inline: 12px;
+		width: content;
+		height: 32px;
+	}
+
+	.tags{
+		justify-content: flex-start !important;
+	}
+
+	#AreaRedes {
+		background-color: black;
+		width: fit-content;
+
+		display: flex;
+		flex-flow: row nowrap;
+		flex-basis: 100%;
+		column-gap: 30px;
+
+		align-items: center;
+		justify-content: space-evenly;
+		overflow: hidden;
+	}
+
+	#Redes1, #Redes2{
+		display: flex;
+		flex-flow: row nowrap;
+		column-gap: 30px;
+		justify-content: space-evenly;
+	}
+
+	#RRSS {
+		display: flex;
+		flex-flow: row nowrap;
+		column-gap: 8px;
+		justify-content: start;
+		color: white;
+	}
+
+	#RRSS span {
+		margin-top: auto;
+		margin-bottom: auto;
+	}
+
+	#RRSS a {
+		text-decoration: none;
+		font-size: 16px;
+		color: white;
+	}
+
+	#RRSS a:hover {
+		color: #500463 !important;
+	}
+
+	#SeccionContenido {
+		margin-top: 8px;
+		height: calc(85% - 42.03%);
+		display: flex !important;
+		flex-direction: row;
+		margin-bottom: 8px;
+	}
+
+	#SeccionContenido .column {
+		display: flex;
+		flex-direction: column;
+		flex-basis: 33%;
+		overflow: hidden;
+		justify-content: center;
+		flex-grow: 0px;
+		row-gap: 3px;
+		font-size: 18px;
+		color: #313131;
+		border-bottom: 0px solid black;
+		margin-inline: 0px;
+		padding: 12px;
+	}
+
+	#SeccionContenido .column a{
+		color: #500463 !important;
+	}
+
+	#SeccionContenido .column:nth-child(2) {
+		border-left: 3px solid black;
+		border-right: 3px solid black;
+	}
+
+	#SeccionContenido .column:nth-child(1) {
+		margin-left: 20px;
+	}
+
+	#SeccionContenido .column:last-child {
+		margin-right: 12px;
+	}
+
+	#SeccionContenido .column ul {
+		list-style-type: circle;
+		padding-inline-start: 40px;
+	}
+	
+	#CardBottom .column {
+		border-top: 3px solid black;
+		padding: 0rem;
+		margin-inline: 20px;
+		color: #313131;
+		text-align: center;
+		font-weight: bold;
+	}
+
+	#final {
+		width: 402px;
+		position: absolute;
+		flex-direction: row;
+		right: 50%;
+		bottom: 1%;
+		transform: translate(50%, 0);
+		margin-top: 10px;
+		color: black;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		column-gap: 7px;
+		row-gap: 7px;
+		font: 20px Tw Cen MT;
+		font-style: italic;
+		margin-bottom: 0px;
+		z-index: 1;
+	}
+
+	#final a {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	#final a img {
+		width: 4rem;
+		height: 1.05rem;
+	}
+
+	#final span {
+		text-align: left;
+		width: 331px;
+	}
+}
+
+/*Diseño para Laptops y Desktops*/
+@media screen and (min-width: 1166px) and (min-height: 616px){
+
+	html,
+	body {
+		background: linear-gradient(to bottom right, #e96443, #904e95);
+		width: 100%;
+		height: 100%;
+		overflow: auto;
+	}
+
+	#loadingScreen{
+		overflow: hidden;
+		position: fixed;
+		height: 100%;
+		width: 100%;
+		background-color: #313131;
+		display: flex;
+		flex-flow: column wrap;
+		justify-content: center;
+		align-items: center;
+		z-index: 9999;
+		font: 96px Tw Cen MT;
+		color: #eeeeee;
+		-webkit-text-stroke-width: 2px;
+		-webkit-text-stroke-color: #000000;
+	}
+	
+	#loadingScreen #final{
+		color: #eeeeee;
+		-webkit-text-stroke-width: 0px;
+	}
+
+	.canvas {
+		align-items: center;
+		background: #eeeeee40;
+		border-radius: 50%;
+		box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+		display: flex;
+		height: 2em;
+		justify-content: center;
+		margin: 0px;
+		width: 2em;
+	  }
+	
+	  /* Spinner 5 starts here */
+	.spinner {
+		position: absolute;
+		animation: spinnerFive 0.8s linear infinite;
+		border: solid 1em #330036;
+		border-right: solid 1em transparent;
+		border-left: solid 1em transparent;
+		border-radius: 100%;
+		width: 0px;
+		height: 0px;
+	  }
+	  
+	  @keyframes spinnerFive {
+		0% {
+		  transform: rotate(0deg);
+		}
+		50% {
+		  transform: rotate(60deg)
+		}
+		100% {
+		  transform: rotate(360deg);
+		}
+	  }
+	  /* Spinner 5 ends here */
+	
+	  #Engranaje{
+		position: absolute;
+		animation-name: ckw;
+		animation-duration: 2s;
+		animation-iteration-count: infinite;
+		transform-origin: 50% 50%;
+		display: inline-block;
+		animation-timing-function: linear;
+		color: #000000;
+		stroke: #eeeeee;
+		stroke-width: 5px;
+	}
+	
+	@keyframes ckw {
+		0% {
+			transform: rotate(0deg);
+		}
+		100% {
+			transform: rotate(-360deg);
+		}
+	}
+
+	#ContenedorTarjeta {
+		position: absolute;
+		top: 0%;
+		left: 0%;
+		right: 0%;
+		bottom: 0%;
+		margin: auto;
+
+		width: 1155.090px;
+		height: 550px;
+		font: 20px Tw Cen MT;
+
+		padding: 0px;
+		border: black 3px solid;
+		border-top-left-radius: 8px;
+		border-top-right-radius: 8px;
+		border-bottom-right-radius: 8px;
+		border-bottom-left-radius: 8px;
+		background-color: #ffdebe;
+		z-index: 2;
+	}
+
+	#AreaPortada {
+		width: 100%;
+	}
+
+	#HarukaPresentacion {
+		position: static;
+		width: 100%;
+		height: 100%;
+	}
+
+	#ImagenPortada {
+		width: 100%;
+		height: 150px;
+	}
+
+	#AreaDescripcion {
+		width: 100%;
+		height: 110px;
+		overflow: hidden;
+		display: flex;
+		flex-wrap: nowrap;
+		align-content: start;
+		justify-content: center;
+		row-gap: 5px;
+		column-gap: 12px;
+		background-color: #631010;
+	}
+
+	#ImagenPerfil {
+		margin-left: 5px;
+		margin-top: auto;
+		margin-bottom: auto;
+	}
+
+	#HarukaIcono {
+		border: 3px black solid;
+		border-radius: 100%;
+	}
+
+	#ContenedorNombreEtiquetas {
+		display: flex;
+		flex-flow: column nowrap;
+		justify-content: center;
+		align-items: flex-start;
+		width: 100%;
+		flex-basis: 100%;
+		row-gap: 5px;
+	}
+
+	#TextoNombre, #Cursor{
+		margin-bottom: 3px;
+		font-weight: bold;
+		/*font-size: 2.5rem;*/
+		font-size: 40px !important;
+		flex-basis: content;
+		color: white;
+		-webkit-text-stroke: 1.5px black;
+	}
+
+	#Etiquetas span {
+		margin-bottom: 3px;
+		font-weight: bold;
+		margin: 0px;
+		/*height: 5.208vh;*/
+	}
+
+	.tag {
+		font-size: 16px !important;
+		margin-bottom: 8px;
+		margin-right: 8px;
+		padding-inline: 12px;
+		width: content;
+		height: 32px;
+	}
+
+	.tags{
+		justify-content: flex-start !important;
+	}
+
+	#AreaRedes {
+		background-color: black;
+		width: calc(100% - 785px);
+		display: flex;
+		flex-flow: row nowrap;
+		flex-basis: 45%;
+		column-gap: 20px;
+		align-items: center;
+		justify-content: space-evenly;
+		overflow: hidden;
+	}
+
+	#Redes1, #Redes2{
+		display: flex;
+		flex-flow: column nowrap;
+		column-gap: 20px;
+		justify-content: space-evenly;
+	}
+
+	#RRSS {
+		display: flex;
+		flex-basis: 22%;
+		flex-wrap: wrap;
+		column-gap: 4px;
+		row-gap: 2px;
+		justify-content: start;
+		color: white;
+	}
+
+	#RRSS span {
+		margin-top: auto;
+		margin-bottom: auto;
+	}
+
+	#RRSS a {
+		text-decoration: none;
+		font-size: 12px;
+		padding-left: 5px;
+		color: white;
+	}
+
+	#RRSS a:hover {
+		color: #500463 !important;
+	}
+
+	#SeccionContenido {
+		margin-top: 10px;
+		height: calc(85% - 42.03%);
+		display: flex !important;
+		flex-direction: row;
+		margin-bottom: 12px;
+	}
+
+	#SeccionContenido .column {
+		display: flex;
+		flex-direction: column;
+		flex-basis: 33%;
+		overflow: hidden;
+		justify-content: center;
+		flex-grow: 0px;
+		row-gap: 3px;
+		font-size: 18px;
+		margin-inline: 0px;
+		padding: 12px;
+		color: #313131;
+		border-bottom: 0px solid black;
+	}
+
+	#SeccionContenido .column a{
+		color: #500463 !important;
+	}
+
+	#SeccionContenido .column:nth-child(2) {
+		border-left: 3px solid black;
+		border-right: 3px solid black;
+	}
+
+	#SeccionContenido .column:nth-child(1) {
+		margin-left: 20px;
+	}
+
+	#SeccionContenido .column:last-child {
+		margin-right: 12px;
+	}
+
+	#SeccionContenido .column ul {
+		list-style-type: circle;
+		padding-inline-start: 40px;
+	}
+
+	#CardBottom .column {
+		border-top: 3px solid black;
+		padding: 0rem;
+		margin-inline: 18px;
+		color: #313131;
+		text-align: center;
+		font-weight: bold;
+	}
+
+	#final {
+		width: 402px;
+		position: absolute;
+		flex-direction: row;
+		right: 50%;
+		bottom: 1%;
+		transform: translate(50%, 0);
+		margin-top: 10px;
+		color: black;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		column-gap: 7px;
+		row-gap: 0px;
+		font: 20px Tw Cen MT;
+		font-style: italic;
+		margin-bottom: 0px;
+		z-index: 1;
+	}
+
+	#final a {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	#final a img {
+		width: 4rem;
+		height: 1.05rem;
+	}
+
+	#final span {
+		text-align: left;
+		width: 331px;
+	}
+}
