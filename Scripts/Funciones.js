@@ -403,7 +403,7 @@ $(document).ready(function () {
   });*/
 
   const images = [
-    'icono.jpg',
+    'Icono.jpg',
     'Presentacion1.gif',
     'Presentacion2.gif',
     'Presentacion3.gif',
