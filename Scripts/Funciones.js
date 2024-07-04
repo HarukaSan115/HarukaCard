@@ -26,7 +26,7 @@ var puntos = 2;
 
 var Frases = new Array();
 Frases[0] = "\"Como me trates te tratare, sin excepciones. La base de toda relacion interpersonal es el respeto, no lo olvides.\"";
-Frases[1] = "\"Las cosas que no pertenecen a nada ni a nadie, las verdaderas intenciones siempre quedan ocultas hasta el final.\" (Eve, 2019)";
+Frases[1] = "\"Las cosas no pertenecen a nada ni a nadie, las verdaderas intenciones siempre quedan ocultas hasta el final.\" (Eve, 2019)";
 Frases[2] = "\"Exrpimiendo sus cerebros y aferrandose a su codicia cayeron en el abismo del ego.\" (Eve, 2018)";
 Frases[3] = "\"En un rincon del mundo estoy reflexionando acerca de lo que verdaderamente me quisiste decir.\" (Eve, 2019)";
 Frases[4] = "\"El sol siempre florecera y se alzara dentro de la oscuridad."
